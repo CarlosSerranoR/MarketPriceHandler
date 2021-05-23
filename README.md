@@ -1,5 +1,5 @@
 # MarketPriceHandler
-Assume line separator for multiple CSV line is: \n
+Assume line separator for multiple CSV line is: \n (declared in application.properties)
 
 There are two REST methods exposed:
 
