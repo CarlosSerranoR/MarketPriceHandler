@@ -22,7 +22,7 @@ public class ConsumerMessageListener  {
 	PriceFeedStore priceFeedStore;
 
 	public void onMessage(String message) {
-		System.out.println("Message received: "+message);
+		System.out.println("Feed received: "+message);
 		String priceFeed=new String(message);
 		String[] priceFeedArr = priceFeed.split(lineSeparator);
 		List<Price> listPriceFeed = priceFeedUtil.processFeed(priceFeedArr);

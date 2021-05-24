@@ -1,12 +1,20 @@
 # MarketPriceHandler
 Assume line separator for multiple CSV line is: \n (declared in application.properties)
 
-There are two REST methods exposed:
+
+
+Also, there are two REST methods exposed:
 
 	- price-feed/getLastFeed?instrumentName=GBP/USD : get the last instrumentName price receive 
 	- price-feed/recieveFeed  : is used for supply data to system
 
 ## Usage
+
+Install the application:
+
+```
+mvn clean install
+```
 
 To run the application:
 
@@ -14,9 +22,11 @@ To run the application:
 mvn spring-boot:run
 ```
 
-To test the application with data there are two ways:
+To test the application with data there are three ways:
 
-- Importing in postman
+- On running, the app send some feed to onMessage interface, and then, get the last instrument value of some instruments feed, showing off in console. 
+
+- Importing in postman, and sending some request
 
 ```
 {

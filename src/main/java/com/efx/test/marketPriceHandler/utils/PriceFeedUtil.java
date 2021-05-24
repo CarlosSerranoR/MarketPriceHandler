@@ -22,40 +22,25 @@ public class PriceFeedUtil {
 	public Price getPriceFromString(String priceString) {
 		Price price= new Price();
 		String[] priceArr = priceString.split(Price.separator);
-		for (int i = 0; i < priceArr.length; i++) {
-			if(i==0) { 
-				price.setId(Long.valueOf(priceArr[i]));
-				continue;
-			}
-			if(i==1) {
-				price.setInstrumentName(priceArr[i].trim());
-				continue;
-			}
-			if(i==2) { 
-				price.setBid(Double.valueOf(priceArr[i]));
-				continue;
-			}
-			if(i==3) { 
-				price.setAsk(Double.valueOf(priceArr[i]));
-				continue;
-			}
-			if(i==4) { 
-				price.setTimestamp(priceArr[i].trim());
-				continue;
-			}
-		}
+
+		price.setId(Long.valueOf(priceArr[0]));
+		price.setInstrumentName(priceArr[1].trim());
+		price.setBid(Double.valueOf(priceArr[2]));
+		price.setAsk(Double.valueOf(priceArr[3]));
+		price.setTimestamp(priceArr[4].trim());
+
 		return price;
 
 	}
-	
+
 	public Price calculateMarginPrice(Price price, double margin) {
 		double askComission=price.getAsk() + price.getAsk()*margin;
 		price.setAsk(askComission);
-		
+
 		double bidComission=price.getBid() - price.getBid()*margin;
 		price.setBid(bidComission);
 		return price;
-		
+
 	}
 
 }
